@@ -1,4 +1,7 @@
-Our breadboard is running one RFID reader correctly to read and verify the RFID Cards. The I2C LCD is connected and displays the correct output to the user when "Access Denied" or "Authorized access." We have a yellow LED to also be another verification for the user to know if they are granted access. For now, we are having some issues with the second RFID reader and need to get the correct power supply for the solenoid to work with the breadboard setup.
+Our breadboard is running one RFID reader correctly to read and verify the RFID Cards. The I2C LCD is connected and displays the
+correct output to the user when "Access Denied" or "Authorized access." We have a yellow LED to also be another verification for the 
+user to know if they are granted access. For now, we are having some issues with the second RFID reader and need to get the correct 
+power supply for the solenoid to work with the breadboard setup.
 
 A video of our breadboard working is on youtube at this link
 https://youtu.be/yJKnMJHlXBU
