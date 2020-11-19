@@ -19,7 +19,7 @@
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
@@ -175,10 +175,10 @@
 <wire x1="100" y1="0" x2="100" y2="58.156" width="0" layer="20"/>
 <wire x1="100" y1="58.156" x2="0" y2="58.156" width="0" layer="20"/>
 <wire x1="0" y1="58.156" x2="0" y2="0" width="0" layer="20"/>
-<text x="18.542" y="7.239" size="2.54" layer="25">Group 8
+<text x="18.542" y="7.239" size="2.54" layer="21">Group 8
 Revision 4.5
 11/18/2020</text>
-<text x="27.051" y="46.355" size="2.54" layer="26" rot="MR0">Group 8
+<text x="27.051" y="46.355" size="2.54" layer="22" rot="MR0">Group 8
 Revision 4.5
 11/18/2020</text>
 <text x="37.338" y="32.766" size="0.6096" layer="25">5V</text>
@@ -193,6 +193,8 @@ Revision 4.5
 <text x="32.512" y="50.673" size="0.6096" layer="25">N$2</text>
 <text x="13.081" y="5.207" size="0.6096" layer="25">12V</text>
 <text x="2.921" y="5.334" size="0.6096" layer="25">N$5</text>
+<text x="0.381" y="30.607" size="1.778" layer="21">Portland State University
+ECE 411</text>
 </plain>
 <libraries>
 <library name="crystal" urn="urn:adsk.eagle:library:204">
