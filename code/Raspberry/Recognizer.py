@@ -18,18 +18,19 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 if __name__ == '__main__':
     while True:
-        ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+        ser = serial.Serial('/dev/ttyACM1', 9600, timeout=1)
         ser.flush()
         number = ser.read()
         if number != b'':
-            if int.from_bytes(number, byteorder='big') == 0:
+             if int.from_bytes(number, byteorder='big') == 0:
                 TXD = 0;
                 RXD = 0;
                 print(RXD)
                 print(TXD)
                 ser.write(str(RXD).encode('utf-8'))
-            if int.from_bytes(number, byteorder='big') == 1:
+             if int.from_bytes(number, byteorder='big') == 1:
                 TXD = 1;
+                RXD = 0;
 #             //////////////////////////////////////////////
 #                 while True:
 #                  try:
@@ -50,25 +51,21 @@ if __name__ == '__main__':
                         RXD = 0
                     else:
                         RXD = 0
-                    cv2.putText(img, str(id), (x,y+h),font,2, (0,255,0),5)
+                    #cv2.putText(img, str(id), (x,y+h),font,2, (0,255,0),5)
 
                 cv2.imshow("face", img)
-                           
+                    #cam.release()
+                         
                 print(TXD)
                 print(RXD)
                 print("\n")
-                if(RXD==1):
-                  for l in range(1000):
-                      ser.write(str(RXD).encode('utf-8'))
-                if cv2.waitKey(1)==ord('q'):
-                    break
+                ser.write(str(RXD).encode('utf-8'))
+                     
+                RXD = 0
                 #except KeyboardInterrupt:
                   #     print (' All done... ')
-#         break
+               
+                #break
 
     cam.release()
     cv2.destroyAllWindows()
-    
-
-                
-                
