@@ -20,6 +20,7 @@ MFRC522 mfrc522[RELAY];   // Create MFRC522 instance.
 LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 
+  
 void setup() 
 {
   Serial.begin(9600);   // Initiate a serial communication
@@ -28,9 +29,9 @@ void setup()
   
   for (uint8_t reader = 0; reader < RELAY; reader++) {
     mfrc522[reader].PCD_Init(ssPins[reader], RST_PIN); // Init each MFRC522 card
-    Serial.print(F("Reader "));
-    Serial.print(reader);
-    Serial.print(F(": "));
+    //Serial.print(F("Reader "));
+    //Serial.print(reader);
+    //Serial.print(F(": "));
     mfrc522[reader].PCD_DumpVersionToSerial();
   }
   
@@ -43,18 +44,34 @@ void setup()
   digitalWrite(RELAY, LOW);
   
     lcd.setCursor(1, 0); 
-    lcd.print("Scan Your Key");
+    lcd.print("Scan Your Face");
     lcd.setCursor(6, 1); 
     lcd.print("^-^");
-      
+
 }
 
-  int counter = 0;
 
+  int counter = 0;
+  int DXT = 1;
+  int RXT = 0;
+
+
+void loop() {
+
+  if (DXT ==1){ 
+    Serial.write(1);
+  }
   
-void loop() 
-{  
-String content= "";
+    if (Serial.available() > 0) {
+      int DATA = Serial.read() - '0';
+
+      if ( DATA == 1 ){
+        Serial.write(RXT);
+        lcd.clear();
+        lcd.setCursor(1, 0); 
+        lcd.print("Scan Your Key"); 
+
+        String content= "";
 for (uint8_t reader = 0; reader < RELAY; reader++) {
     // Look for new cards
 
@@ -133,7 +150,20 @@ for (uint8_t reader = 0; reader < RELAY; reader++) {
     } //if (mfrc522[reader].PICC_IsNewC
   } //for(uint8_t reader
 
-}
+
+      }
+      
+      if ( DATA == RXT ){
+        lcd.clear();
+        lcd.setCursor(1, 0); 
+        lcd.print("Scan Your Face"); 
+        Serial.write(DXT);
+      }
+
+} // serial 
+
+
+}// LOOP
 
 
  /**
