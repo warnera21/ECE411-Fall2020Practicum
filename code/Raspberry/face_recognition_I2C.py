@@ -19,8 +19,8 @@ def solenoid():
        
             # unlock door
             bus.write_byte(addr, 0x1)
-            # wait for 3 seconds before locking door
-            time.sleep(3)
+            # wait for 5 seconds before locking door
+            time.sleep(5)
             #lock the door
             bus.write_byte(addr, 0x0) 
     
@@ -31,7 +31,7 @@ while True:
    faces = faceDetect.detectMultiScale(gray,1.3,5)
 
    for (x,y,w,h) in faces:
-       cv2.rectangle(img, (x,y), (x+w, y+h), (0,0,255), 2)
+       #cv2.rectangle(img, (x,y), (x+w, y+h), (0,0,255), 2)
        id, conf = rec.predict(gray[y:y+h, x:x+w])
        
        
@@ -41,14 +41,16 @@ while True:
             cam.release()
             cam = cv2.VideoCapture(0)
             solenoid()
+        
+        elif id!=1:
+            print('Unauthorized User! ')
+            cam.release()
+            cam = cv2.VideoCapture(0)
          
             
        #cv2.putText(img, str(id), (x,y+h),font,3, (255,0,0),1,)
 
    #cv2.imshow("face", img)
-   
-   if cv2.waitKey(1)==ord('q'):
-             break
  except KeyboardInterrupt:
    print (' All done... ')
    break
