@@ -1,11 +1,7 @@
 # ECE411-Fall2020Practicum
-This project is based in adding security and ease of access trough a door using Facial Recognition and RFID technologies. The implementation of keeping track of how many (Authorized) people go inside/out of a building is an extra feature that can aid with companies enforcing distancing strategies for COVID purposes. 
+This project is based in adding security and ease of access trough a door using Facial Recognition and RFID technologies. The implementation of keeping track of how many (Authorized) user go inside/out of a building is an extra feature that can aid with companies enforcing distancing strategies for COVID purposes. 
 
-### TEAM 8:
-   ### Hamed AlSaegui
-   ### Anthony Warner
-   ### Josh Pradera 
-   ### Tamar Stigler-Flores
+### TEAM 8: Hamed AlSaegui, Anthony Warner, Josh Pradera, Tamar Stigler-Flores.
 
 
 ### Arduino Code
